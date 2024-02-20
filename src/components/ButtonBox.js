@@ -2,7 +2,7 @@ import React from 'react';
 import './ButtonBox.css';
 import Button from './Button';
  
-const ButtonBox = ({ value }) => {
+const ButtonBox = ({ handleClick }) => {
 
     const btnValues = [["C", "+-", '%', '/'],
                        ["7", "8", "9", "X"], 
@@ -14,11 +14,11 @@ const ButtonBox = ({ value }) => {
             {btnValues.flat().map((row, i) => {
                 if (row !== "=") {
                     return (
-                        <Button key={i} className={"button"} value={row} onClick={() => {console.log(`Button '${row}' Clicked!`);}} />
+                        <Button key={i} className={"button"} value={row} onClick={handleClick} />
                     )
                 } else {
                     return (
-                        <Button key={i} className={"equals"} value={row} onClick={() => {console.log(`Button '${row}' Clicked!`);}} />
+                        <Button key={i} className={"equals"} value={row} onClick={handleClick} />
                     )
                 }
             }
